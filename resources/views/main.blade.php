@@ -1,0 +1,41 @@
+@extends('layouts.master')
+
+@section('content')
+<div class="container">
+    <div class="jumbotron text-center">
+        <h1>  Hello World!!!  </h1>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquam
+             eos sunt placeat facilis 
+            quibusdam beatae praesentium culpa, consectetur 
+            alias saepe dicta itaque ex mollitia laborum, natus ad, incidunt est quae.
+        </p>
+    </div>
+
+    <div class="row">
+      
+        @foreach($dataforblog as $items)
+        <div class="col-sm-4" style="  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+            
+            <a href="#" class="thumbnail">
+                <img src="uploads\image\{{$items->image}}" width="100%;" height="200px;">
+            </a>
+            <h3>{{$items->title}}</h3>
+            <p>{{$items->content}}
+            </p>
+           
+          
+            <h5 style="margin-bottom:0% ">{{$items->created_at}}</h5>
+            <a href="{{url('/readmore/'.$items->id)}}" class="btn btn-primary" style="margin-bottom:0% ">Read more</a>
+         
+      
+        </div>
+        
+        @endforeach
+        
+    </div>
+
+
+</div>
+
+
+@endsection
