@@ -9,7 +9,7 @@
           <div class="col-md-12">
             <div class="card">
               <div class="card-header">
-              <a href="/insertuser">insert data</a>
+              <a href="/insertuser" class="btn btn-primary">insert data</a>
                 <h4 class="card-title"> Blog Table</h4>
               </div>
               <div class="card-body">

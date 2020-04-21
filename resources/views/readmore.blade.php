@@ -16,12 +16,12 @@
     
     @foreach($datafor as $items)
         <div class="col-sm" style="  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-        <img src="uploads\image\{{$items->image}}" width="100%;">
+       
             <a href="#" class="thumbnail">
-          
+            <img src="..\uploads\image\{{$items->image}}" alt="kak" width="100%; " height="300px;">
             </a>
             <h3>{{$items->title}}</h3>
-            <p>{{$items->content}}
+            <p>{!!$items->content!!}
             </p>
            
           

@@ -8,7 +8,9 @@ class ShowIndexController extends Controller
 {
     public function showblog(){
         $dataforblog = Blog::
-            orderBy('id','desc')->get();
+            orderBy('id','desc')
+           
+            ->paginate(3);
            
 
                 return view('main',['dataforblog'=>$dataforblog]);

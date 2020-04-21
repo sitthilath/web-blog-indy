@@ -3,12 +3,9 @@
 @section('content')
 <div class="container">
     <div class="jumbotron text-center">
-        <h1>  Hello World!!!  </h1>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquam
-             eos sunt placeat facilis 
-            quibusdam beatae praesentium culpa, consectetur 
-            alias saepe dicta itaque ex mollitia laborum, natus ad, incidunt est quae.
-        </p>
+        <h1>  Welcome Blog indy!!!  </h1>
+        <h3>ຍິນດີຕ້ອນຮັບທຸກທ່ານເຂົ້າສູ່ ເວັບອິນດີ້ຂອງ ພວກເຮົາ  
+        </h3>
     </div>
 
     <div class="row">
@@ -20,7 +17,7 @@
                 <img src="uploads\image\{{$items->image}}" width="100%;" height="200px;">
             </a>
             <h3>{{$items->title}}</h3>
-            <p>{{$items->content}}
+            <p>{!! $items->content!!}
             </p>
            
           
@@ -33,7 +30,7 @@
         @endforeach
         
     </div>
-
+    <div class="container" style="margin-top: 10px;">{{$dataforblog->links()}}</div>
 
 </div>
 

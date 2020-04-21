@@ -36,6 +36,11 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
+
+
+
+
+
         $blog = new Blog();
        
         $blog->title= $request->input('title');
@@ -53,7 +58,29 @@ class BlogController extends Controller
            
 
          
-
+        $detail=$request->content;
+        $dom = new \domdocument();
+        $dom->loadHtml('<?xml encoding="UTF-8">'.$detail);
+     
+        $images = $dom->getelementsbytagname('img');
+       
+        foreach($images as $k => $img){
+        $data = $img->getattribute('src');
+        list($type, $data) = explode(';', $data);
+        list(, $data)= explode(',', $data);
+        $data = base64_decode($data);
+     
+        $image_name= time().$k.'.png';
+      
+        $path = public_path() .'/uploads/image_content/'. $image_name;
+      
+        file_put_contents($path, $data);
+        $img->removeattribute('src');
+        $img->setattribute('src',"../uploads/image_content/". $image_name);
+        }
+        $detail = $dom->savehtml();
+        
+        $blog->content = $detail;
         $blog->save();
         return redirect('/admin.blogmanage');
     }
